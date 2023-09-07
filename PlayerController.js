@@ -34,13 +34,6 @@ function getTranslateYPos(transform)
     }
 }
 
-function movePlayer(number_of_pixels)
-{
-    console.log('movePlayer ran');
-    rect = player.getBoundingClientRect();
-    player.style.left = rect.left + number_of_pixels + "px";
-}
-
 jump_button = document.getElementById('jump');
 jump_button.addEventListener('click', function () { jump() });
 
