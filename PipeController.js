@@ -28,15 +28,14 @@ class Pipe
         this.element.style.transform = `translate(${this.xPos}px, ${this.yPos}px)`;
     }
 
-    moveLeftForce() {
-        this.xPos -= 10;
+    moveLeftForce(randInt) {
+        this.xPos -= randInt;
         this.updatePosition()
     }
 }
 
 Pipe.pipeCount = 0
 
-// Create an array to hold the pipe objects
 const pipes = [];
 
 for (let i = 0; i < 50; i++) {
@@ -44,15 +43,8 @@ for (let i = 0; i < 50; i++) {
     pipes.push(pipe);
 }
 
-// // Use a single setInterval to update all pipes' positions
-// setInterval(() => {
-//     for (let i = 0; i < pipes.length; i++) {
-//         pipes[i].moveLeftForce()
-//     }
-// }, 100);
-
 for (let i = 0; i < pipes.length; i++) {
     setInterval(() => { 
-        pipes[i].moveLeftForce()
-    }, 100 - Math.floor(Math.random() * 1000))
+        pipes[i].moveLeftForce(50)
+    }, 100)
 }

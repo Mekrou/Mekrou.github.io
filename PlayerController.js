@@ -1,53 +1,36 @@
-const player = document.querySelector('.Player')
-const screenHeight = window.innerHeight
-
-player.style.transform = 'translate(0vh, 0vh)'
-
-function jump() 
-{
-//    orig_top = rect.top;
-//    orig_bot = rect.bottom;
-
-    let transform = player.style.transform;
-    let translateYPos = getTranslateYPos(transform);
-    targetY = translateYPos - 70;
-    if (targetY < screenHeight)
-    {
-        player.style.transform = `translate(0, ${targetY}vh`;
-    }
-    else 
-    {
-
+class PlayerController {
+    constructor(player) {
+        this.player = player;
     }
 
-//    player.style.left = orig_top + 50 + 'px';
-//    rect.bottom = orig_bot + 10 + 'px';
-}
+    jump(y) {
+        this.player.yPos += y;
+        this.player.updatePosition();
+    }
 
-function getTranslateYPos(transform)
-{
-    const regex = /(\d*\.?\d+)vh/g;
-    try {
-        return parseInt(regex.exec(transform)[1])
-    } catch (TypeError) {
-        return '0'
+    gravity() {
+        this.player.yPos += 50
+        player.updatePosition();
     }
 }
 
-jump_button = document.getElementById('jump');
-jump_button.addEventListener('click', function () { jump() });
+class Player {
+    constructor() {
+        this.xPos = 0;
+        this.yPos = 0;
+        this.element = document.getElementById('player'); // Assuming you have an element with ID 'player'
+    }
 
-function gravity()
-{
-    target = getTranslateYPos(player.style.transform) + 1
-    if (target > 35)
-    {
-
-    } 
-    else
-    {
-        player.style.transform = `translate(0, ${target}vh)`
-    }   
+    updatePosition() {
+        this.element.style.transform = `translate(${this.xPos}px, ${this.yPos}px)`;
+    }
 }
 
-setInterval(gravity, 10)
+const player = new Player();
+const playerController = new PlayerController(player);
+
+const jumpButton = document.getElementById('jump');
+jumpButton.addEventListener('click', function () { playerController.jump(-200); });
+
+setInterval(() => { playerController.gravity() }, 100)
+
