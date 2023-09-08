@@ -22,7 +22,6 @@ class Player {
     }
 
     updatePosition() {
-        const forceLayout = this.element.offsetTop;
         this.element.style.transform = `translate(${this.xPos}px, ${this.yPos}px)`;
     }
 }

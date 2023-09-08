@@ -50,7 +50,9 @@ setInterval(() => {
 }, 2500)
 
 
-
+setTimeout(()=>{
+    console.log(pipes)
+}, 5000)
 
 
 // for (let i = 0; i < pipes.length; i++) {
@@ -60,4 +62,3 @@ setInterval(() => {
 //     }, 100) 
 // }
 
-console.log(`${Math.floor(Math.random() * 5)}`)

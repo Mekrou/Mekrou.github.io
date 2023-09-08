@@ -20,10 +20,16 @@ setInterval(()=>{
     {
         if (!debounce)
         {
-            console.log(player.yPos)
             // reset the game
                 // reset player position
+            player.yPos -= player.yPos + 500;
+            player.updatePosition()
                 // delete all pipes
+            let pipeContainer = document.getElementById('pipe-container')
+            while (pipeContainer.firstChild) {
+                pipeContainer.removeChild(pipeContainer.firstChild);
+            }
+            alert('GAME OVER!')
                 // i tink that's all
             function gameOver() {
                 // get player's current Y transform
