@@ -28,9 +28,11 @@ class Pipe
         this.element.style.transform = `translate(${this.xPos}px, ${this.yPos}px)`;
     }
 
-    moveLeftForce() {
-        this.xPos -= 50;
-        this.updatePosition()
+    applyMoveLeftForce() {
+        setInterval(() => {
+            this.xPos -= 50;
+            this.updatePosition()
+        }, 100)
     }
 }
 
@@ -44,10 +46,7 @@ const pipes = [];
 setInterval(() => {
     let pipe = new Pipe();
     pipes.push(pipe);
-
-    setInterval(() => {
-        pipe.moveLeftForce()
-    }, 100)
+    pipe.applyMoveLeftForce();
 }, 2500)
 
 
@@ -61,4 +60,4 @@ setInterval(() => {
 //     }, 100) 
 // }
 
-console.log(`Math.floor(Math.random * 5)`)
+console.log(`${Math.floor(Math.random() * 5)}`)

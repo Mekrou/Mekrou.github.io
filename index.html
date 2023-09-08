@@ -7,7 +7,11 @@
     <title>Flappy Bird</title>
 </head>
 <body>
-    <div id="player"></div>
+    <div id="player">
+        <div id="spawn-point"></div>
+    </div>
+
+    <div id="target"></div>
 
     <template id="pipe-template">
         <div class="pipe-material"></div>
@@ -15,7 +19,7 @@
 
     <div id="pipe-container"></div>
 
-    <button id="jump">Click me to jump!</button>
+    <script src="./CollisionHandler.js"></script>
     <script src="./PlayerController.js"></script>
     <script src="./PipeController.js"></script>
 </body>

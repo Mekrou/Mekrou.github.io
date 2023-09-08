@@ -26,11 +26,17 @@ class Player {
     }
 }
 
+
+
+
 const player = new Player();
 const playerController = new PlayerController(player);
 
-const jumpButton = document.getElementById('jump');
-jumpButton.addEventListener('click', function () { playerController.jump(-200); });
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Space" || event.key === ' ') { 
+        playerController.jump(-200)     
+    }
+});
 
 setInterval(() => { playerController.gravity() }, 100)
 
