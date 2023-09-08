@@ -25,3 +25,16 @@ body {
     margin: 0;
 }
 
+#lose-collider {
+    position: absolute;
+    width: 100vw;
+    height: 2vh;
+    top: 98vh;
+}
+
+#origin {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(0px, 0px);
+}
