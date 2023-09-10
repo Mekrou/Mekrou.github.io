@@ -1,4 +1,4 @@
-import { CollisionObject } from "./CollisionHandler";
+import { CollisionObject } from "./CollisionHandler.js";
 
 class Pipe
 {

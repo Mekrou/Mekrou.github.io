@@ -5,7 +5,7 @@ export class CollisionHandler {
 
     activateCollision() {
         setInterval(() => {
-            let playerRectY = player.getBoundingClientRect().y;
+            let playerRectY = window.player.getBoundingClientRect().y;
             let colliderRectY = this.collisionElement.getBoundingClientRect().y;
 
             let distanceBetweenPlayerAndCollider = Math.abs(colliderRectY - playerRectY)
