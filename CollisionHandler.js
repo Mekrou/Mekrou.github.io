@@ -1,16 +1,31 @@
-let wordOrigin = document.getElementById('spawn-point')
+export class CollisionHandler {
+    constructor(CollisionObject) {
+        this.collisionElement = CollisionObject.collisionElement
+    }
 
-let playerElement = document.getElementById('player')
-let topCollider = document.getElementById('top-collider')
+    activateCollision() {
+        setInterval(() => {
+            let playerRectY = player.getBoundingClientRect().y;
+            let colliderRectY = this.collisionElement.getBoundingClientRect().y;
 
-let debounce = false;
+            let distanceBetweenPlayerAndCollider = Math.abs(colliderRectY - playerRectY)
 
-setInterval( () => {
-	checkTopCollider(playerElement, topCollider)
-}, 100)
+            if (distanceBetweenPlayerAndCollider <= 50)
+            {
+    	        console.log("collision occurred!");
+            }
+        }, 100)
+    }
+}
+
+export class CollisionObject {
+    constructor(collisionElement) {
+        this.collisionElement = collisionElement;
+        this.CollisionHandler = new CollisionHandler(this);
+    }
 
 
-// setInterval(()=>{
+}
 //     let rect = playerElement.getBoundingClientRect();
 //     rectY = rect.y
 //     if (Math.abs(colliderRectY - rectY) <= 50)
@@ -44,15 +59,3 @@ setInterval( () => {
 //     }
 // }, 100)
 
-function checkTopCollider(player, topCollider)
-{
-    let playerRectY = player.getBoundingClientRect().y;
-    let colliderRectY = topCollider.getBoundingClientRect().y;
-
-    let distanceBetweenPlayerAndCollider = Math.abs(colliderRectY - playerRectY)
-
-    if (distanceBetweenPlayerAndCollider <= 50)
-    {
-    	console.log("collision occurred!");    
-    }
-}

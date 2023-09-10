@@ -1,3 +1,5 @@
+import { CollisionObject } from "./CollisionHandler";
+
 class Pipe
 {
     constructor()
@@ -34,26 +36,38 @@ class Pipe
             this.updatePosition()
         }, 100)
     }
+
+    // Removes the pipe object from the DOM.
+    deletePipe() {
+       this.element.remove() 
+    }
 }
 
+// Making a global reference to player. Reduces the need of redundant passings
+window.player = document.getElementById('player')
 Pipe.pipeCount = 0
-
+let topCollider = new CollisionObject(document.getElementById('top-collider'))
+let loseCollider = new CollisionObject(document.getElementById('lose-collider'))
+topCollider.CollisionHandler.activateCollision();
+loseCollider.CollisionHandler.activateCollision();
 // Keeps track of our Pipe objects
 const pipes = [];
-
 
 // Start Pipe Generation
 setInterval(() => {
     let pipe = new Pipe();
     pipes.push(pipe);
     pipe.applyMoveLeftForce();
+
+    let lastPipeIndex = pipes.indexOf(pipe);
+
+    // After 10 seconds, delete pipe element
+    setTimeout(() => {
+        pipes.splice(lastPipeIndex, 1)
+        // Delete object from DOM
+        pipe.deletePipe();
+    }, 10000)
 }, 2500)
-
-
-setTimeout(()=>{
-    console.log(pipes)
-}, 5000)
-
 
 // for (let i = 0; i < pipes.length; i++) {
 //     window.intervalID = setInterval(() => {
