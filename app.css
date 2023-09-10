@@ -38,3 +38,10 @@ body {
     top: 50vh;
     transform: translate(0px, 0px);
 }
+
+#top-collider {
+    position: absolute;
+    width: 100vw;
+    height: 2vh;
+    bottom: 98vh;
+}
