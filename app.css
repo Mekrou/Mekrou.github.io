@@ -2,24 +2,29 @@
     position: absolute;
     top: 53vh;
     left: 30vw;
-    width: 25px;
-    height: 25px;
-    background: black;
+    background: rgba(0, 0, 0, 0);
     transition-property: transform;
     transition-duration: 0.5s;
     transition-timing-function: linear;
+    content: url("flappy.png");
 }
 
 .pipe-material {
     position: absolute;
-    background: black;
-    width: 50px;
+    background: rgba(0, 0, 0, 0);
     height: 100vh;
     left: 99vw;
+    content: url("./pipeSprite.png");
     transition-property: transform;
     transition-duration: 0.5s;
     transition-timing-function: linear;
 } 
+
+#background {
+    content: url("./background.png");
+    width: 100vw;
+    height: 100vh;
+}
 
 body {
     margin: 0;
@@ -45,3 +50,4 @@ body {
     height: 2vh;
     bottom: 98vh;
 }
+

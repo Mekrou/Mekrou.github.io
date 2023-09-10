@@ -43,15 +43,25 @@ class Pipe
     }
 }
 
-// Making a global reference to player. Reduces the need of redundant passings
-window.player = document.getElementById('player')
+const playerElement = document.getElementById('player')
 Pipe.pipeCount = 0
 let topCollider = new CollisionObject(document.getElementById('top-collider'))
 let loseCollider = new CollisionObject(document.getElementById('lose-collider'))
 topCollider.CollisionHandler.activateCollision();
 loseCollider.CollisionHandler.activateCollision();
+
 // Keeps track of our Pipe objects
 const pipes = [];
+const player = new Player(playerElement);
+const playerController = new PlayerController(player);
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Space" || event.key === ' ') { 
+        playerController.jump(-200)     
+    }
+});
+
+setInterval(() => { playerController.gravity() }, 100)
 
 // Start Pipe Generation
 setInterval(() => {

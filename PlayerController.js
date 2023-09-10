@@ -1,6 +1,6 @@
 class PlayerController {
-    constructor(player) {
-        this.player = player;
+    constructor(playerObject) {
+        this.player = playerObject;
     }
 
     jump(y) {
@@ -10,33 +10,18 @@ class PlayerController {
 
     gravity() {
         this.player.yPos += 50
-        player.updatePosition();
+        this.player.updatePosition();
     }
 }
 
 class Player {
-    constructor() {
+    constructor(playerElement) {
         this.xPos = 0;
         this.yPos = 0;
-        this.element = document.getElementById('player'); // Assuming you have an element with ID 'player'
+        this.element = playerElement; 
     }
 
     updatePosition() {
         this.element.style.transform = `translate(${this.xPos}px, ${this.yPos}px)`;
     }
 }
-
-
-
-
-const player = new Player();
-const playerController = new PlayerController(player);
-
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Space" || event.key === ' ') { 
-        playerController.jump(-200)     
-    }
-});
-
-setInterval(() => { playerController.gravity() }, 100)
-
