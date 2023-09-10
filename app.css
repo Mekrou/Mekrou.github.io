@@ -1,51 +1,52 @@
 #player {
+    /* Center player inside of .background-container */
     position: absolute;
-    top: 53vh;
-    left: 30vw;
-    background: rgba(0, 0, 0, 0);
+    top: 30%;
+    left: 20%;
+
+    /* Resize player width/height based on .background-container */
+    width: 10%;
+    padding-top: 10%;
+
+    /* For smooth jump animation */ 
     transition-property: transform;
     transition-duration: 0.5s;
     transition-timing-function: linear;
     content: url("flappy.png");
+    z-index: 1;
 }
 
 .pipe-material {
-    position: absolute;
-    background: rgba(0, 0, 0, 0);
     height: 100vh;
-    left: 99vw;
+    background: rgba(0, 0, 0, 0);
     content: url("./pipeSprite.png");
     transition-property: transform;
     transition-duration: 0.5s;
     transition-timing-function: linear;
+    z-index: 1;
 } 
 
-#background {
-    content: url("./background.png");
+.background-container {
+    position: relative;
     width: 100vw;
     height: 100vh;
+    background-image: url('./background.png');
+    background-size: contain;
 }
 
 body {
     margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #lose-collider {
-    position: absolute;
     width: 100vw;
     height: 2vh;
     top: 98vh;
 }
 
-#origin {
-    position: absolute;
-    left: 50vw;
-    top: 50vh;
-    transform: translate(0px, 0px);
-}
-
 #top-collider {
-    position: absolute;
     width: 100vw;
     height: 2vh;
     bottom: 98vh;

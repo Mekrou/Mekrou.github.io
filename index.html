@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./app.css">
     <title>Flappy Bird</title>
 </head>
-<body>
-    <div id="player">
-        
-    </div>
 
-    <div id="origin"></div>
+<body>
+    <div class="background-container">
+        <div id="player"></div>
+        <div id="pipe-container"></div>
+        <div id="lose-collider"></div>
+        <div id="top-collider"></div>
+    </div>
 
     <template id="pipe-template">
         <div class="pipe-material"></div>
     </template>
 
-    <div id="pipe-container"></div>
-
-    <div id="lose-collider"></div>
-
-    <div id="top-collider"></div>
-
-    <div id="background"></div>
-    
     <script src="./PlayerController.js"></script>
     <script type="module" src="./PipeController.js"></script>
     <script type="module" src="./CollisionHandler.js"></script>
 </body>
 
-    
+
 </html>

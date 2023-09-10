@@ -22,7 +22,7 @@ class Pipe
         const divElement = clone.querySelector('.pipe-material')
         divElement.id = `pipe${Pipe.getPipeCount()}`
 
-        const pipeContainer = document.getElementById('pipe-container')
+        const pipeContainer = document.getElementsByClassName('background-container')[0]
         pipeContainer.appendChild(divElement)
     }
 
